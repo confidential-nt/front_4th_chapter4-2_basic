@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: Heebo, Arial, sans-serif;
-
+  font-family: 'Heebo', Arial, Helvetica, sans-serif;
+  font-display: swap;
   padding-top: 80px;
 }
 
