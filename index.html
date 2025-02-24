@@ -87,22 +87,16 @@
 
     <section class="hero">
       <img
-        class="desktop"
         src="images/Hero_Desktop.jpg"
+        srcset="
+          images/Hero_Mobile.jpg   640w,
+          images/Hero_Tablet.jpg  1280w,
+          images/Hero_Desktop.jpg 1920w
+        "
+        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 80vw, 60vw"
         width="1920"
         height="1080"
-      />
-      <img
-        class="mobile"
-        src="images/Hero_Mobile.jpg"
-        width="640"
-        height="360"
-      />
-      <img
-        class="tablet"
-        src="images/Hero_Tablet.jpg"
-        width="1280"
-        height="720"
+        alt="Hero Image"
       />
 
       <div class="hero-content">
