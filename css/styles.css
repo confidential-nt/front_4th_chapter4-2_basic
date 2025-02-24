@@ -228,6 +228,7 @@ section.best-sellers .product-slider .product {
 
 section.best-sellers .product-slider .product img {
   max-width: 40%;
+  aspect-ratio: 679 / 755;
 }
 
 section.best-sellers .product-slider .product .product-picture {
