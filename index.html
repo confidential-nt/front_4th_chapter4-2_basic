@@ -90,29 +90,20 @@
     </header>
 
     <section class="hero">
-      <picture>
-        <!-- 모바일 화면에서 로드할 이미지, class 추가 -->
-        <source
-          srcset="images/Hero_Mobile.webp"
-          media="(max-width: 576px)"
-          class="mobile"
-        />
-        <!-- 태블릿 화면에서 로드할 이미지, class 추가 -->
-        <source
-          srcset="images/Hero_Tablet.webp"
-          media="(max-width: 960px)"
-          class="tablet"
-        />
-        <!-- 데스크탑 화면에서 로드할 이미지, class 추가 -->
-        <img
-          src="images/Hero_Desktop.webp"
-          alt="Hero Image"
-          width="1920"
-          height="1080"
-          fetchpriority="high"
-          class="desktop"
-        />
-      </picture>
+      <img
+        id="hero-image"
+        src="images/Hero_Desktop.webp"
+        srcset="
+          images/Hero_Mobile.webp   576w,
+          images/Hero_Tablet.webp   960w,
+          images/Hero_Desktop.webp 1920w
+        "
+        sizes="(max-width: 576px) 100vw, (max-width: 960px) 80vw, 60vw"
+        width="1920"
+        height="1080"
+        alt="Hero Image"
+        fetchpriority="high"
+      />
 
       <div class="hero-content">
         <div class="container">
