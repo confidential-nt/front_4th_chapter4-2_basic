@@ -78,20 +78,23 @@
 
     <section class="hero">
       <img
-        id="hero-image"
+        class="desktop"
         src="images/Hero_Desktop.webp"
-        srcset="
-          images/Hero_Mobile.webp   576w,
-          images/Hero_Tablet.webp   960w,
-          images/Hero_Desktop.webp 1920w
-        "
-        sizes="(max-width: 576px) 100vw, (max-width: 960px) 80vw, 100vw"
         width="1920"
         height="1080"
-        alt="Hero Image"
-        fetchpriority="high"
       />
-
+      <img
+        class="mobile"
+        src="images/Hero_Mobile.webp"
+        width="640"
+        height="360"
+      />
+      <img
+        class="tablet"
+        src="images/Hero_Tablet.webp"
+        width="1280"
+        height="720"
+      />
       <div class="hero-content">
         <div class="container">
           <h1>Discover our line of VR Headsets</h1>
