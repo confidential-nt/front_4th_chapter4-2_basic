@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Tech Shop</title>
+    <link rel="stylesheet" href="/css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="preconnect"
@@ -20,7 +21,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Heebo:300,400,600,700&display=swap"
     />
-    <link rel="stylesheet" href="/css/styles.css" />
+
     <!-- <link rel="stylesheet" type="text/css" href="/css/slick.css"/> -->
     <!-- Google Tag Manager -->
 
@@ -31,35 +32,21 @@
       type="text/javascript"
       src="//www.freeprivacypolicy.com/public/cookie-consent/4.1.0/cookie-consent.js"
       charset="UTF-8"
-      async
-      onload="initCookieConsent()"
     ></script>
-
     <script type="text/javascript" charset="UTF-8">
-      function initCookieConsent() {
-        const observer = new IntersectionObserver((entries, obs) => {
-          if (entries[0].isIntersecting) {
-            // 사용자가 페이지를 스크롤하면 쿠키 배너 실행
-            cookieconsent.run({
-              notice_banner_type: 'simple',
-              consent_type: 'express',
-              palette: 'light',
-              language: 'en',
-              page_load_consent_levels: ['strictly-necessary'],
-              notice_banner_reject_button_hide: false,
-              preferences_center_close_button_hide: false,
-              page_refresh_confirmation_buttons: false,
-              website_name: 'Performance Course',
-            });
-
-            // 옵저버 해제 (한 번만 실행)
-            obs.disconnect();
-          }
+      document.addEventListener('DOMContentLoaded', function () {
+        cookieconsent.run({
+          notice_banner_type: 'simple',
+          consent_type: 'express',
+          palette: 'light',
+          language: 'en',
+          page_load_consent_levels: ['strictly-necessary'],
+          notice_banner_reject_button_hide: false,
+          preferences_center_close_button_hide: false,
+          page_refresh_confirmation_buttons: false,
+          website_name: 'Performance Course',
         });
-
-        // body를 감시하여 사용자가 스크롤을 시작하면 실행
-        observer.observe(document.body);
-      }
+      });
     </script>
   </head>
 
@@ -83,7 +70,7 @@
             <li><a href="about.html">About us</a></li>
             <li><a href="index.html#best-sellers-section">Best Sellers</a></li>
             <li><a href="index.html#newsletter-section">Newsletter</a></li>
-            <li class="menu-icon"><img src="images/menu_icon.png" /></li>
+            <li class="menu-icon"><img src="images/menu_icon.webp" /></li>
           </ul>
         </nav>
       </div>
