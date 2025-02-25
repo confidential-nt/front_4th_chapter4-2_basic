@@ -102,7 +102,7 @@ section.hero img {
   display: none;
 }
 
-section.hero img.desktop {
+section.hero .desktop {
   display: initial;
 }
 
@@ -474,11 +474,11 @@ footer .copyright-text {
     display: inline-block;
   }
 
-  section.hero img.desktop {
+  section.hero .desktop {
     display: none;
   }
 
-  section.hero img.tablet {
+  section.hero .tablet {
     display: initial;
   }
 
@@ -614,11 +614,11 @@ footer .copyright-text {
     height: 7px;
   }
 
-  section.hero img.tablet {
+  section.hero .tablet {
     display: none;
   }
 
-  section.hero img.mobile {
+  section.hero .mobile {
     display: initial;
   }
 
