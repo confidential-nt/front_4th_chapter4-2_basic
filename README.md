@@ -53,13 +53,73 @@
 
 **성능이 약 36.1% 정도 개선**됨
 
-## 의문점
+## 질문
 
-1. sizes, srcset 을 사용해서 desktop 디바이스일때는 desktop용 이미지만 로드되게 하려고 했는데 도전에 실패했다.
+**1.sizes, srcset 을 사용해서 desktop 디바이스일때는 desktop 용 이미지만 로드되게 하려고 했는데 도전에 실패했습니다.**
 
-   - img를 이용해 srcset, sizes 속성을 사용한다. : css에서 desktop, tablet, mobile 등의 class로 hero 이미지의 표시를 결정하는데 img 단일 태그로는 이를 조절할 수 없다.
-   - picture, source, img 를 사용한다. : source에서는 class가 말을 듣지 않는다.
+```html
+<img
+      class="desktop"
+      src="images/Hero_Desktop.webp"
+      alt="hero image"
+      width="144"
+      height="67"
+    />
+    <img
+      class="mobile"
+      src="images/Hero_Mobile.webp"
+      alt="hero image"
+      width="1"
+      height="1"
+    />
+    <img
+      class="tablet"
+      src="images/Hero_Tablet.webp"
+      alt="hero image"
+      width="96"
+      height="77"
+    />
+```
+위와 같이 하면 이미지는 잘 불러와지는데 tablet, mobile 이미지도 가져옵니다
+```html
+<img
+      id="hero-image"
+      src="images/Hero_Desktop.webp"
+      srcset="
+        images/Hero_Mobile.webp   576w,
+        images/Hero_Tablet.webp   960w,
+        images/Hero_Desktop.webp 1920w
+      "
+      sizes="(max-width: 576px) 100vw, (max-width: 960px) 80vw, 100vw"
+      width="1920"
+      height="1080"
+      alt="Hero Image"
+      fetchpriority="high"
+    />
+``` 
+위와 같이 srcset, sizes를 사용하면 class를 적용하지 못해서 미디어 쿼리가 제대로 적용이 안되고 class로 display를 조절하고 있기 때문에 이미지가 안보입니다.
+```tsx
+<picture>
+<source srcset="images/Hero_Mobile.webp" media="(max-width: 576px)" class="mobile">
+<source srcset="images/Hero_Tablet.webp" media="(max-width: 960px)" class="tablet">
+<img src="images/Hero_Desktop.webp" alt="Hero Image" width="1920" height="1080" class="desktop" fetchpriority="high">
+</picture>
+```
+위와 같이 하면 source에서는 class가 작동하지 않아서 데스크탑 이미지만 보입니다. 어떻게하면 이 상황을 해결할 수 있을까요?
 
-2. 이미지의 적절한 width, height 속성은 어떻게 정하는건지 잘 모르겠다. 이것도 회사 내부에서 정하기 나름인걸까?
 
-3. 모바일 디바이스에서의 최적화가 너무 어렵다. 데스크탑과 모바일에서 성능 차이가 나는 이유는 무엇일까?
+**2.이미지의 적절한 width, height 정하기**
+   
+  이번 과제에서 가장 고민스러웠던 것은…
+  ```tsx
+  <img src="..." width={...} height={...}/> 
+  ```
+  img의 width, height를 정하는 일이었습니다.
+  
+  실제 디바이스에서 필요한 이미지 사이즈보다 무조건 작게 가져가야 이득인걸까요?
+  
+  이미지 사이즈는 누가,어떻게 정하나요?
+  
+  이미지 사이즈를 미리 지정했다고해도 후에 css에 의해 조정되면 이것도 CLS의 원인이 될 수 있지는 않을지…
+
+**3.모바일 디바이스에서의 성능 최적화가 너무 어렵습니다. 데스크탑과 모바일에서 성능 차이가 나는 원인엔 무엇이 있을 수 있을까요?**
